@@ -112,15 +112,19 @@ coll.find(
 );
 */
 
+// error: "text index required for $text query"
+// https://www.mongodb.com/docs/manual/core/indexes/index-types/index-text/
+coll.createIndex(
+    {
+        'name': 'text'
+    }
+);
+
 // https://www.mongodb.com/docs/manual/reference/operator/query/text/
-// text index required for $text query
-// come back to this!
-/*
 coll.find(
     {
         $text: {
-            $search: "earth"
+            $search: 'earth'
         }
     }
 );
-*/
